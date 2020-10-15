@@ -1,6 +1,7 @@
 import os
 
 import emoji
+import googlemaps
 import tweepy
 
 from owm import OWM
@@ -11,6 +12,7 @@ CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET")
 
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 WEATHER_TOKEN = os.getenv("WEATHER_TOKEN")
 
 
@@ -21,6 +23,16 @@ def get_weather_emoji(text):
         if e in text:
             return e
     return
+
+
+def get_location_point(address):
+    gmaps = googlemaps.Client(key=GOOGLE_API_KEY)
+    geocode_result = gmaps.geocode(address)
+    if not geocode_result:
+        return
+    geocode_result, *_ = geocode_result
+    location = geocode_result["geometry"]["location"]
+    return location["lat"], location["lng"]
 
 
 def run():
