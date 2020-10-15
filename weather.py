@@ -20,17 +20,17 @@ class Weather:
 
     def get_emoji(self):
         emoji_dict = {
-            "01d": ":sun:",
-            "02d": ":sun_behind_cloud:",
-            "10d": ":sun_behind_rain_cloud:",
-            "03d": ":cloud:",
-            "04d": ":cloud:",
-            "09d": ":cloud_with_rain:",
-            "11d": ":cloud_with_lightning:",
-            "13d": ":snowman:",
-            "50d": ":fog:",
+            "01": ":sun:",
+            "02": ":sun_behind_cloud:",
+            "10": ":sun_behind_rain_cloud:",
+            "03": ":cloud:",
+            "04": ":cloud:",
+            "09": ":cloud_with_rain:",
+            "11": ":cloud_with_lightning:",
+            "13": ":snowman:",
+            "50": ":fog:",
         }
-        return emoji.emojize(emoji_dict[self.icon])
+        return emoji.emojize(emoji_dict[self.icon[:-1]])
 
     @classmethod
     def from_dict(cls, dict_):
