@@ -39,16 +39,20 @@ def run():
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
     api = tweepy.API(auth)
-
-    w = OWM(WEATHER_TOKEN)
-    response = w.get_weather_by_city_name("Osaka")
-    json = response.json()
-    weather = Weather.from_dict(json)
     user = api.me()
     name = emoji.demojize(user.name)
     target = get_weather_emoji(name)
     if not target:
         return
+
+    point = get_location_point(user.location)
+    if not point:
+        return
+
+    w = OWM(WEATHER_TOKEN)
+    response = w.get_weather_by_location(*point)
+    json = response.json()
+    weather = Weather.from_dict(json)
     name = name.replace(target, weather.get_emoji())
     api.update_profile(name=name)
 
