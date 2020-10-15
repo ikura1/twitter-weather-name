@@ -1,6 +1,19 @@
 import emoji
 
 
+WEATHER_EMOJI = {
+    "01": ":sun:",
+    "02": ":sun_behind_cloud:",
+    "10": ":sun_behind_rain_cloud:",
+    "03": ":cloud:",
+    "04": ":cloud:",
+    "09": ":cloud_with_rain:",
+    "11": ":cloud_with_lightning:",
+    "13": ":snowman:",
+    "50": ":fog:",
+}
+
+
 class Weather:
     def __init__(self, code, main, description, icon):
         """
@@ -19,18 +32,7 @@ class Weather:
         return
 
     def get_emoji(self):
-        emoji_dict = {
-            "01": ":sun:",
-            "02": ":sun_behind_cloud:",
-            "10": ":sun_behind_rain_cloud:",
-            "03": ":cloud:",
-            "04": ":cloud:",
-            "09": ":cloud_with_rain:",
-            "11": ":cloud_with_lightning:",
-            "13": ":snowman:",
-            "50": ":fog:",
-        }
-        return emoji.emojize(emoji_dict[self.icon[:-1]])
+        return emoji.emojize(WEATHER_EMOJI[self.icon[:-1]])
 
     @classmethod
     def from_dict(cls, dict_):
