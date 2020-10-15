@@ -30,6 +30,12 @@ class OWM:
         response = self._get("/data/2.5/weather", params=params)
         return response
 
+    def get_weather_by_location(self, lat, lon, mode=None, units=None, lang=None):
+        params = {"lat": lat, "lon": lon}
+        params.update(self.params)
+        response = self._get("/data/2.5/weather", params=params)
+        return response
+
     def get_icon(self, icon_id):
         response = self._get(
             f"/img/wn/{icon_id}@2x.png", endpoint=self.data_endpoint, stream=True
