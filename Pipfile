@@ -9,6 +9,11 @@ verify_ssl = true
 tweepy = "*"
 emoji = "*"
 googlemaps = "*"
+flask = "*"
+flask-sqlalchemy = "*"
+gunicorn = "*"
+flask-migrate = "*"
+environs = "*"
 
 [requires]
 python_version = "3.9"
