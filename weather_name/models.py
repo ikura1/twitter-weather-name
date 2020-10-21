@@ -22,14 +22,3 @@ class User(PkModel):
             access_token_secret=token_secret,
             **kwargs
         )
-        # self.set_password(token)
-        # self.set_token(token_secret)
-
-    # TODO: 下記をトークン用に変更する
-    def set_token(self, password):
-        """Set password."""
-        self.password = bcrypt.generate_password_hash(password)
-
-    def check_password(self, value):
-        """Check password."""
-        return bcrypt.check_password_hash(self.password, value)
