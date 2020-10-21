@@ -4,8 +4,7 @@ import emoji
 import googlemaps
 import tweepy
 
-from owm import OWM
-from weather import Weather, WEATHER_EMOJI
+from owm import OWM, Weather, WEATHER_EMOJI
 
 CONSUMER_KEY = os.getenv("CONSUMER_KEY")
 CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
