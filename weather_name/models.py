@@ -5,8 +5,7 @@ from weather_name.database import Column, PkModel, db
 class User(PkModel):
     __tablename__ = "users"
 
-    id = Column(db.Integer, primary_key=True)
-    name = Column(db.String(255), unique=True, nullable=False)
+    user_id = Column(db.Integer, unique=True, nullable=False)
     # トークン・暗号化する必要ある?
     access_token = Column(db.String(60), nullable=False)
     access_token_secret = Column(db.String(60), nullable=False)
