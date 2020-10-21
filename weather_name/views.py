@@ -13,7 +13,6 @@ blueprint = Blueprint("public", __name__)
 
 @blueprint.route("/", methods=["GET"])
 def index():
-    print(request.host_url)
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET, request.host_url)
     redirect_url = "https://twitter.com"
     oauth_token = request.args.get("oauth_token")
@@ -28,12 +27,19 @@ def index():
             auth.get_access_token(oauth_verifier)
             api = tweepy.API(auth)
             # User作成
-            user = api.me()
-            User.create(
-                name=user.screen_name,
-                token=auth.access_token,
-                token_secret=auth.access_token_secret,
-            )
+            tw_user = api.me()
+            user = User.query.filter_by(user_id=tw_user.id).first()
+            if user:
+                user.update(
+                    token=auth.access_token,
+                    token_secret=auth.access_token_secret,
+                )
+            else:
+                User.create(
+                    user_id=tw_user.id,
+                    token=auth.access_token,
+                    token_secret=auth.access_token_secret,
+                )
 
         except tweepy.error.TweepError:
             print("Request token missing")
