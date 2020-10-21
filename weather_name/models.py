@@ -14,10 +14,13 @@ class User(PkModel):
     latitude = Column(db.Float())
     longitude = Column(db.Float())
 
-    def __init__(self, name, token, token_secret, **kwargs):
+    def __init__(self, user_id, token, token_secret, **kwargs):
         """Create instance."""
         super().__init__(
-            name=name, access_token=token, access_token_secret=token_secret, **kwargs
+            user_id=user_id,
+            access_token=token,
+            access_token_secret=token_secret,
+            **kwargs
         )
         # self.set_password(token)
         # self.set_token(token_secret)
