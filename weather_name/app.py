@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 
-from flask import Flask, redirect
-import tweepy
+from flask import Flask
 
 from weather_name import views
 from weather_name.extensions import db, migrate

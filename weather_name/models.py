@@ -1,4 +1,3 @@
-from os import access
 from weather_name.database import Column, PkModel, db
 
 
