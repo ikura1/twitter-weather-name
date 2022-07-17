@@ -27,6 +27,7 @@ def index():
             auth.get_access_token(oauth_verifier)
             api = tweepy.API(auth)
             # User作成
+            # Error
             tw_user = api.me()
             user = User.query.filter_by(user_id=tw_user.id).first()
             if user:
@@ -41,12 +42,12 @@ def index():
                     token_secret=auth.access_token_secret,
                 )
 
-        except tweepy.error.TweepError:
+        except tweepy.TweepError:
             print("Request token missing")
     else:
         try:
             redirect_url = auth.get_authorization_url()
-        except tweepy.error.TweepError as e:
+        except tweepy.TweepError as e:
             print(e)
     print("redirect_url", redirect_url)
     return redirect(redirect_url)
