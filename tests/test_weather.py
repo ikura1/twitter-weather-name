@@ -19,7 +19,7 @@ class TestWeather(unittest.TestCase):
     def test_weather_emoji(self):
         weather = Weather.from_dict(WEATHER_DICT)
         e = weather.get_emoji()
-        self.assertEqual(e, emoji.emojize(":sun_behind_cloud:"))
+        self.assertEqual(emoji.emojize(":sun_behind_cloud:"), e)
 
 
 if __name__ == "__main__":
