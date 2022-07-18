@@ -1,4 +1,7 @@
 import unittest
+
+import emoji
+
 from owm import Weather
 
 WEATHER_DICT = {
@@ -15,8 +18,8 @@ class TestWeather(unittest.TestCase):
 
     def test_weather_emoji(self):
         weather = Weather.from_dict(WEATHER_DICT)
-        emoji = weather.get_emoji()
-        self.assertEqual(emoji, "🌥️")
+        e = weather.get_emoji()
+        self.assertEqual(e, emoji.emojize(":sun_behind_cloud:"))
 
 
 if __name__ == "__main__":
