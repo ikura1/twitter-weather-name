@@ -42,7 +42,7 @@ def index():
                     token_secret=auth.access_token_secret,
                 )
 
-        except tweepy.TweepError:
+        except tweepy.errors.TweepyException:
             print("Request token missing")
     else:
         try:

@@ -82,7 +82,7 @@ def run():
             name = replace_weather_name(db_user, twitter_user)
             if name:
                 api.update_profile(name=name)
-        except tweepy.TweepError:
+        except tweepy.errors.TweepyException:
             session.delete(db_user)
     session.commit()
 
