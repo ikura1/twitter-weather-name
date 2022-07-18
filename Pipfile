@@ -4,6 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pre-commit = "*"
+black = "*"
+flake8 = "*"
+flake8-isort = "*"
 
 [packages]
 tweepy = "*"
@@ -18,3 +22,6 @@ psycopg2-binary = "*"
 
 [requires]
 python_version = "3.9.13"
+
+[pipenv]
+allow_prereleases = true
