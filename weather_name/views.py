@@ -28,7 +28,7 @@ def index():
             api = tweepy.API(auth)
             # User作成
             # Error
-            tw_user = api.me()
+            tw_user = api.verify_credentials()
             user = User.query.filter_by(user_id=tw_user.id).first()
             if user:
                 user.update(

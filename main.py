@@ -78,7 +78,7 @@ def run():
             auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
             auth.set_access_token(db_user.access_token, db_user.access_token_secret)
             api = tweepy.API(auth)
-            twitter_user = api.me()
+            twitter_user = api.verify_credentials()
             name = replace_weather_name(db_user, twitter_user)
             if name:
                 api.update_profile(name=name)
