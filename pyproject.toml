@@ -1,3 +1,10 @@
 [tool.isort]
 profile = "black"
 skip_glob = ["migrations/*"]
+
+[tool.black]
+exclde = """
+(
+    migrations
+)
+"""
