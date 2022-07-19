@@ -3,7 +3,7 @@ profile = "black"
 skip_glob = ["migrations/*"]
 
 [tool.black]
-exclde = """
+exclude = """
 (
     migrations
 )
