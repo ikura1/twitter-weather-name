@@ -6,9 +6,8 @@ import tweepy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+from owm import OWM, WEATHER_EMOJI, Weather
 from weather_name.models import User
-from owm import OWM, Weather, WEATHER_EMOJI
-
 
 CONSUMER_KEY = os.getenv("CONSUMER_KEY")
 CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
