@@ -15,7 +15,9 @@ CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 WEATHER_TOKEN = os.getenv("WEATHER_TOKEN")
 
-engine = create_engine(os.getenv("DATABASE_URL"))
+engine = create_engine(
+    os.getenv("DATABASE_URL").replace("postgres://", "postgresql://")
+)
 
 
 def get_weather_emoji(text):
