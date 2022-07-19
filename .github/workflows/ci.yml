@@ -33,5 +33,6 @@ jobs:
           cache: pip
           cache-dependency-path: |
             requirements.txt
+
       - name: Run pre-commit
         uses: pre-commit/action@v2.0.3
