@@ -1,7 +1,7 @@
 import os
 
-from flask import Blueprint, redirect, request
 import tweepy
+from flask import Blueprint, redirect, request
 
 from weather_name.models import User
 

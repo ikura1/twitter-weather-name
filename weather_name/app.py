@@ -6,7 +6,6 @@ from flask import Flask
 from weather_name import views
 from weather_name.extensions import db, migrate
 
-
 CONSUMER_KEY = os.getenv("CONSUMER_KEY")
 CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
 

@@ -1,6 +1,5 @@
 import emoji
 
-
 WEATHER_EMOJI = {
     "01": ":sun:",
     "02": ":sun_behind_cloud:",
