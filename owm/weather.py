@@ -1,4 +1,7 @@
+from typing import Dict
+
 import emoji
+from typing_extensions import Self
 
 WEATHER_EMOJI = {
     "01": ":sun:",
@@ -14,7 +17,7 @@ WEATHER_EMOJI = {
 
 
 class Weather:
-    def __init__(self, code, main, description, icon):
+    def __init__(self, code: int, main: str, description: str, icon: str) -> None:
         """
         [
             {
@@ -27,14 +30,14 @@ class Weather:
         self.description = description
         self.icon = icon
 
-    def get_icon_url(self):
+    def get_icon_url(self) -> str:
         return
 
-    def get_emoji(self):
+    def get_emoji(self) -> str:
         return emoji.emojize(WEATHER_EMOJI[self.icon[:-1]])
 
     @classmethod
-    def from_dict(cls, dict_):
+    def from_dict(cls, dict_: Dict) -> Self:
         weather, *_ = dict_.get("weather", {})
         return Weather(
             weather.get("id"),

@@ -4,3 +4,4 @@
 *.pyc
 sample
 Pipfile.lock
+.mypy_cache
